@@ -1,6 +1,7 @@
 import random
 from pymongo import MongoClient
 from datetime import datetime, timedelta
+import numpy 
 
 # Conectar ao servidor MongoDB
 client = MongoClient("localhost",27017)
@@ -42,9 +43,14 @@ filtro = {"temperatura": {"$exists": True}}
 
 collection.insert_one(dados_machine)
 
-for i in range(20):
+for i in range(16000000):
+    print(i)
+
+    datetime_novo = datetime_obj + timedelta(minutes=15*(i+1))
+    datetime_novo_string = datetime_novo.strftime(datetime_format)
+
     temp = random.randint(20,40)
-    nova_temperatura = {"temperatura" :{"01-01-2022 00-45-00":temp}}
+    nova_temperatura = {"temperatura" :{datetime_novo_string:temp}}
     add_novo_dado = {"$addToSet":nova_temperatura}
     collection.update_one(filtro,add_novo_dado)
 
