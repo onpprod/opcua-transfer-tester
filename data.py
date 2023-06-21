@@ -20,6 +20,7 @@ def dataVectorGen(data_1,data_2,data_format,delta_minutes):
     return data_list
 
 """
+
 # Codigo para teste
 
 dt_string1 = "01-01-2022 00:00:00"
@@ -31,4 +32,5 @@ data_list = dataVectorGen(dt_string1,dt_string2,dt_format, 15)
 for i in data_list:
     print(i)
     time.sleep(1)
+    
 """
