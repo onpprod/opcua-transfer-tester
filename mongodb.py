@@ -19,7 +19,7 @@ client = MongoClient("localhost",27017)
 db = client['Facilities']
 
 # Selecionar a coleção
-collection = db['empilhadeira_1']
+collection = db['empilhadeira_2']
 
 #==============================
 #time
@@ -50,7 +50,7 @@ else:
 #==============================
 
 
-for i in range(1000000):
+for i in range(1):
     #checar se existe documento
     print("=========================================================")
     dt_obj_new = dt_obj + timedelta(minutes=(15*i))
